@@ -1,0 +1,15 @@
+../Core/Src/xensiv_bgt60trxx.c:77:34:detect_device_type	24	static
+../Core/Src/xensiv_bgt60trxx.c:109:9:xensiv_bgt60trxx_init	40	static
+../Core/Src/xensiv_bgt60trxx.c:159:9:xensiv_bgt60trxx_config	48	static
+../Core/Src/xensiv_bgt60trxx.c:207:9:xensiv_bgt60trxx_set_reg	32	static
+../Core/Src/xensiv_bgt60trxx.c:229:9:xensiv_bgt60trxx_get_reg	32	static
+../Core/Src/xensiv_bgt60trxx.c:256:10:xensiv_bgt60trxx_get_fifo_size	16	static
+../Core/Src/xensiv_bgt60trxx.c:262:27:xensiv_bgt60trxx_get_device	16	static
+../Core/Src/xensiv_bgt60trxx.c:268:9:xensiv_bgt60trxx_set_fifo_limit	24	static
+../Core/Src/xensiv_bgt60trxx.c:289:9:xensiv_bgt60trxx_get_fifo_data	40	static
+../Core/Src/xensiv_bgt60trxx.c:333:9:xensiv_bgt60trxx_get_fifo_status	24	static
+../Core/Src/xensiv_bgt60trxx.c:344:9:xensiv_bgt60trxx_start_frame	24	static
+../Core/Src/xensiv_bgt60trxx.c:371:9:xensiv_bgt60trxx_soft_reset	32	static
+../Core/Src/xensiv_bgt60trxx.c:416:9:xensiv_bgt60trxx_enable_data_test_mode	24	static
+../Core/Src/xensiv_bgt60trxx.c:448:6:xensiv_bgt60trxx_hard_reset	16	static
+../Core/Src/xensiv_bgt60trxx.c:468:10:xensiv_bgt60trxx_get_next_test_word	24	static
