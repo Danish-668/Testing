@@ -60,8 +60,8 @@ all: main-build
 main-build: SPI_BGT60TR13C.elf secondary-outputs
 
 # Tool invocations
-SPI_BGT60TR13C.elf SPI_BGT60TR13C.map: $(OBJS) $(USER_OBJS) C:\Users\admin\STM32CubeIDE\temp\SPI_BGT60TR13C\STM32G431CBUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "SPI_BGT60TR13C.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\admin\STM32CubeIDE\temp\SPI_BGT60TR13C\STM32G431CBUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="SPI_BGT60TR13C.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+SPI_BGT60TR13C.elf SPI_BGT60TR13C.map: $(OBJS) $(USER_OBJS) C:\Users\ASUS\ 1\Documents\GitHub\Testing\SPI_BGT60TR13C\STM32G431CBUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "SPI_BGT60TR13C.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\ASUS 1\Documents\GitHub\Testing\SPI_BGT60TR13C\STM32G431CBUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="SPI_BGT60TR13C.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

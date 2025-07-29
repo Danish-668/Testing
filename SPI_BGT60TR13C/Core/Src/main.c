@@ -34,24 +34,11 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define CS_BGT60_GPIO_Port    GPIOA
-#define CS_BGT60_Pin          GPIO_PIN_4
-#define RST_BGT60_GPIO_Port   GPIOB
-#define RST_BGT60_Pin         GPIO_PIN_0
-
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
 xensiv_bgt60trxx_t sensor;
-
-sensor.iface = &hspi1;
-sensor.cs_pin.port = CS_BGT60_GPIO_Port;
-sensor.cs_pin.pin = CS_BGT60_Pin;
-sensor.rst_pin.port = RST_BGT60_GPIO_Port;
-sensor.rst_pin.pin = RST_BGT60_Pin;
-sensor.delay = HAL_Delay; // Or your wrapper
-
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
@@ -101,14 +88,23 @@ int main(void)
   MX_GPIO_Init();
   MX_SPI1_Init();
   /* USER CODE BEGIN 2 */
-  // Initialize sensor interface
-  xensiv_bgt60trxx_mtb_init(&sensor, &hspi1, CS_port_pin, RST_port_pin, reg_list, sizeof(reg_list)/sizeof(...));
-  // Enable known test mode
-  xensiv_bgt60trxx_enable_data_test_mode(&sensor.dev, true);
-  // Start a test frame
-  if (xensiv_bgt60trxx_start_frame(&sensor.dev, true) != XENSIV_BGT60TRXX_STATUS_OK) {
+  // Initialize sensor struct
+  sensor.iface = &hspi1;
+  sensor.type = NULL; // Will be set by init
+  sensor.high_speed = false; // Set true if you want high speed SPI
+
+  // Initialize sensor (correct number of arguments)
+  if (xensiv_bgt60trxx_init(&sensor, &hspi1, false) != XENSIV_BGT60TRXX_STATUS_OK) {
+    Error_Handler();
   }
 
+  // Enable test mode (if available)
+  xensiv_bgt60trxx_enable_data_test_mode(&sensor, true);
+
+  // Start a test frame
+  if (xensiv_bgt60trxx_start_frame(&sensor, true) != XENSIV_BGT60TRXX_STATUS_OK) {
+    Error_Handler();
+  }
   /* USER CODE END 2 */
 
   /* Infinite loop */
